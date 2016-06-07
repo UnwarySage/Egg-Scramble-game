@@ -5,7 +5,9 @@ export (PackedScene) var egg
 #locals
 var timer = 0
 var variance = 150
-var debug = true
+var debug = false
+var target= Vector2(320,500)
+
 
 func _ready():
 	set_process(true)
@@ -23,7 +25,16 @@ func create_egg():
 	add_child(e)
 	
 	if(!debug):
-		e.set_pos(Vector2(rand_range(0,get_viewport().get_visible_rect().size.x),0))
-		e.set_linear_velocity(Vector2(rand_range(-variance,variance),rand_range(-variance,variance)))
+		var temp_vector= Vector2(0,-20)
+		temp_vector.x=(rand_range(0,get_viewport().get_visible_rect().size.x))
+		e.set_pos(temp_vector)
+		#now we have set the egg to a random position above the top of the screen
+		#now calculate the vector towards target.
+		temp_vector=target-temp_vector
+		e.set_linear_velocity(temp_vector.normalized()*300)
+		#We have flung the egg at the target, now spin it
+		e.set_angular_velocity(rand_range(-15,15))
+		#randomize target for next go round and 
+		target.x=(rand_range(0,get_viewport().get_visible_rect().size.x))
 	else:
 		e.set_pos(Vector2(320,0))
