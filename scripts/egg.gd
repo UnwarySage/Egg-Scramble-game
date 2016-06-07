@@ -13,7 +13,6 @@ func _on_egg_body_enter( body ):
 		#Handle making splatter, placing it and parenting it
 		var s=splatter.instance()
 		var splatter_node=get_node("/root/main/splatter_parent")
-		print(splatter_node)
 		s.set_pos(Vector2(get_pos().x,780))
 		splatter_node.add_child(s)
 		#update the score

@@ -11,5 +11,4 @@ func _ready():
 func _process(delta):
 	var display = get_node("level_display")
 	display.set_text("Score: "+str(score_keep.player_score))
-	print("Yo")
 	
