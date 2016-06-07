@@ -20,3 +20,11 @@ func _on_egg_body_enter( body ):
 		score_node.player_score -= 15
 		queue_free()
 
+
+
+func _on_egg_visibility_changed():
+	print("Peekaboo")
+	var present_pos=get_pos()
+	if !(present_pos.x > get_viewport().get_visible_rect().size.x):
+		print("On the left!")
+	

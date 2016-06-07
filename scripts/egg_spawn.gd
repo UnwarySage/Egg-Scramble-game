@@ -5,7 +5,7 @@ export (PackedScene) var egg
 #locals
 var timer = 0
 var variance = 150
-var debug = false
+var debug = true
 var target= Vector2(320,500)
 
 
