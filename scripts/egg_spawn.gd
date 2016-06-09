@@ -35,6 +35,7 @@ func create_egg():
 		#We have flung the egg at the target, now spin it
 		e.set_angular_velocity(rand_range(-15,15))
 		#randomize target for next go round.
-		target.x=(rand_range(0,get_viewport().get_visible_rect().size.x))
+		if (randi(5)==1):
+			target.x=(rand_range(0,get_viewport().get_visible_rect().size.x))
 	else:
 		e.set_pos(Vector2(320,0))
