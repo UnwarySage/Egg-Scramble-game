@@ -2,6 +2,8 @@ extends Node2D
 #exports
 export var delay = 1.0
 export (PackedScene) var egg
+export var init_delay=5
+export var active= false
 #locals
 var timer = 0
 var variance = 150
@@ -9,14 +11,21 @@ var debug = false
 var target= Vector2(320,500)
 
 
+
 func _ready():
 	set_process(true)
+	print("spawner ready")
 
 func _process(delta):
 	timer += delta
-	if(timer >= delay):
-		timer =0
-		create_egg()
+	if(active):
+		if(timer >= delay):
+			timer =0
+			create_egg()
+	else:
+		if(timer >= init_delay):
+			timer=0
+			active=true
 
 func create_egg():
 	print("creating egg")

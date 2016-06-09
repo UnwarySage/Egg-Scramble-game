@@ -7,6 +7,7 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	
 	if (score_keep.eggs_dropped > lives):
 		#Load the start over or main menu when those are implemnted.
 		#for now do the following
